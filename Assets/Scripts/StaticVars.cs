@@ -37,7 +37,7 @@ public class StaticVars :MonoBehaviour  {
 		if (!soundState) {
 			AudioSource asc = gameObject.AddComponent<AudioSource> ();
 			asc.loop = true;
-			asc.clip = Resources.Load ("fusionOST") as AudioClip;
+			asc.clip = Resources.Load ("narration") as AudioClip;
 			asc.Play ();
 			soundState = true;
 		}

@@ -15,6 +15,9 @@ public class CheckInteraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (mpc.m_CurrentState == MediaPlayerCtrl.MEDIAPLAYER_STATE.PLAYING) {
+			mpc.Pause();
+		}
 		if (stateMoon && stateShadow && stateCup) 
 		{
 			//Animation anim = GetComponent<Animation>();
