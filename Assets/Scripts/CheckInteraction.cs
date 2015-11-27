@@ -8,9 +8,14 @@ public class CheckInteraction : MonoBehaviour {
 	public static bool stateMoon = false;
 	public static bool stateShadow = false;
 	public static bool stateCup = false;
+
 	// Use this for initialization
 	void Start () {
-	
+		stateMoon = false;
+		stateShadow = false;
+		stateCup = false;
+
+
 	}
 	
 	// Update is called once per frame
@@ -24,6 +29,9 @@ public class CheckInteraction : MonoBehaviour {
 			if ( !anim.isPlaying )
 			{
 				Debug.Log ("ani complete");
+				stateMoon = false;
+				stateShadow = false;
+				stateCup = false;
 				//mpc.Play();
 				Application.LoadLevel("Story3");
 			}

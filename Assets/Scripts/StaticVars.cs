@@ -4,6 +4,8 @@ using System.Collections;
 public class StaticVars :MonoBehaviour  {
 
 	private static StaticVars instance;
+	private static bool soundType = false;
+	private AudioSource asc;
 
 	public static StaticVars GetInstance
 	{
@@ -31,19 +33,37 @@ public class StaticVars :MonoBehaviour  {
 	void Update () {
 		//Debug.Log ("selectedStroy :" + selectedStroy);
 	}
-
-	public void SoundOn()
+	public void NarrSound()
 	{
-		if (!soundState) {
-			AudioSource asc = gameObject.AddComponent<AudioSource> ();
-			asc.loop = true;
-			asc.clip = Resources.Load ("narration") as AudioClip;
-			asc.Play ();
-			soundState = true;
-		}
+		AudioSource asc = gameObject.AddComponent<AudioSource> ();
+		asc.clip = Resources.Load ("audios/narration") as AudioClip;
+		asc.Play ();
 	}
 
-	private bool soundState = false;
+	public void IntroSound()
+	{
+		AudioSource asc = gameObject.AddComponent<AudioSource> ();
+		asc.clip = Resources.Load ("audios/intro_23") as AudioClip;
+		asc.Play ();
+		/*
+		Debug.Log ("SoundOn");
+		if (!asc) {
+			asc = gameObject.AddComponent<AudioSource> ();
+			asc.loop = true;
+		}else{
+			asc.Stop();
+		}
+		if ( soundType )
+		{
+			asc.clip = Resources.Load ("audios/narration") as AudioClip;
+		}else{
+			asc.clip = Resources.Load ("audios/narration") as AudioClip;
+		}
+		soundType = !soundType;
+		asc.Play ();
+		*/
+	}
+
 	private int selectedStroy;
 	private int selectedScreen;
 	
